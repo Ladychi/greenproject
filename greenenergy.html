@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Green Energy Input form</title>
+		<meta charset="UTF-8"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link href="bootstrip/css/bootstrap.min.css" rel="stylesheet">
+		<link href="bootstrip/style/style.css" rel="stylesheet">
+		<script type="text/javascript">
+		
+			function includeInput(input)
+			{
+				if(input)
+				{
+				  document.getElementById("space heating").type = "input";
+				  document.getElementById("space heating field").innerHTML = "Space Heating:";
+				  document.getElementById("lightening").type = "input";
+				  document.getElementById("lightening field").innerHTML = "Lightening:";
+				  document.getElementById("water heating").type = "input";
+				  document.getElementById("water heating field").innerHTML = "Water Heating:";
+				  document.getElementById("cooking").type = "input";
+				  document.getElementById("cooking field").innerHTML = "Cooking:";
+				  document.getElementById("cooling").type = "input";
+				  document.getElementById("cooling field").innerHTML = "Cooling:";
+				  document.getElementById("others").type = "input";
+				  document.getElementById("others field").innerHTML = "others:";
+			  }
+			  else
+			  {
+				  document.getElementById("space heating").type = "hidden";
+				  document.getElementById("space heating field").innerHTML = "";
+				  document.getElementById("lightening").type = "input";
+				  document.getElementById("lightening field").innerHTML = "Lightening:";
+				  document.getElementById("water heating").type = "input";
+				  document.getElementById("water heating field").innerHTML = "Water Heating:";
+				  document.getElementById("cooking").type = "input";
+				  document.getElementById("cooking field").innerHTML = "Cooking:";
+				  document.getElementById("cooling").type = "input";
+				  document.getElementById("cooling field").innerHTML = "Cooling:";
+				  document.getElementById("others").type = "input";
+				  document.getElementById("others field").innerHTML = "others:";
+			  }
+			}
+			
+			
+			function validateEmptyBsize(input,error)
+			{   
+				if(input.value.length == 0)
+					{
+						if(error != null)
+						error.innerHTML = "Building size Missing";
+						return false;
+					}
+                else if(isNaN(input.value) == true)
+                      {
+					    error.innerHTML = "Enter a number";
+					  }				
+				else
+					{
+						if(error != null)
+						error.innerHTML = "m3(meter cube)";
+						return true;
+					}
+					
+			}
+			
+			function validateEmptyTemp(input,error)
+			{
+				if(input.value.length == 0)
+					{
+						if(error != null)
+						error.innerHTML = "Temperature value Missing";
+						return false;
+					}
+				else if(isNaN(input.value) == true)
+                      {
+					    error.innerHTML = "Enter a number";
+					  }	
+				else
+					{
+						if(error != null)
+						error.innerHTML = "Degree celcius";
+						return true;
+					}
+						
+			}
+			
+			function validateEmptyDate(input,error)
+			{
+				if(input.value == 'blank')
+					{
+						if(error != null)
+						error.innerHTML = "You did not select a date.";
+						return false;
+					}
+						
+					else
+					{
+						if(error != null)
+						error.innerHTML = "";
+						return true;
+					}
+			}
+			
+			function validateEmptyCity(input,error)
+			{
+				if(input.value == "default")
+					{
+						error.innerHTML = "You did not select a city.";
+						return false;
+					}
+					
+					else
+					{
+						if(error != null)
+						error.innerHTML = "";
+						return true;
+					}
+			}
+			
+			function validateEmptyEnergyclass(input,error)
+			{
+				if(input.value == 'blank')
+					{
+						if(error != null)
+						error.innerHTML = "You did not select Energy class";
+						return false;
+					}			
+					else
+					{
+						if(error != null)
+						error.innerHTML = "";
+						return true;
+					}
+			}
+			
+			//The hidden field validation
+			function validateEmptyheating(input,error)
+			{
+				if(input.value == 0)
+					{
+						if(error != null)
+						error.innerHTML = "You did not fill the heating consumption value";
+						return false;
+					}
+                else if(isNaN(input.value) == true)
+                      {
+					    error.innerHTML = "Enter a number";
+					  }						
+				else
+					{
+						if(error != null)
+						error.innerHTML = "watt/sec";
+						return true;
+					}
+			}
+			
+
+			function validateEmptylightening(input,error)
+			{
+				if(input.value == 0)
+					{
+						if(error != null)
+						error.innerHTML = "You did not fill the lightening consumption value";
+						return false;
+					}
+				else if(isNaN(input.value) == true)
+                      {
+					    error.innerHTML = "Enter a number";
+					  }	
+				else
+					{
+						if(error != null)
+						error.innerHTML = "watt/sec";
+						return true;
+					}
+			}
+			
+			function validateEmptywaterheating(input,error)
+			{
+				if(input.value == 0)
+					{
+						if(error != null)
+						error.innerHTML = "You did not fill the water heating consumption value";
+						return false;
+					}
+				else if(isNaN(input.value) == true)
+                      {
+					    error.innerHTML = "Enter a number";
+					  }	
+				else
+					{
+						if(error != null)
+						error.innerHTML = "watt/sec";
+						return true;
+					}
+			}
+			
+			
+			function validateEmptycooling(input,error)
+			{
+				if(input.value == 0)
+					{
+						if(error != null)
+						error.innerHTML = "You did not fill the cooling consumption value";
+						return false;
+					}
+				else if(isNaN(input.value) == true)
+                      {
+					    error.innerHTML = "Enter a number";
+					  }			
+				else
+					{
+						if(error != null)
+						error.innerHTML = "watt/sec";
+						return true;
+					}
+			}
+			
+			
+			function validateEmptycooking(input,error)
+			{
+				if(input.value == 0)
+					{
+						if(error != null)
+						error.innerHTML = "You did not fill the cooking consumption value";
+						return false;
+					}
+				else if(isNaN(input.value) == true)
+                      {
+					    error.innerHTML = "Enter a number";
+					  }		
+				else
+					{
+						if(error != null)
+						error.innerHTML = "watt/sec";
+						return true;
+					}
+			}
+			
+			function validateEmptyothers(input,error)
+			{
+				if(input.value == 0)
+					{
+						if(error != null)
+						error.innerHTML = "You did not fill this form";
+						return false;
+					}
+				else if(isNaN(input.value) == true)
+                      {
+					    error.innerHTML = "Enter a number";
+					  }	
+				else
+					{
+						if(error != null)
+						error.innerHTML = "watt/sec";
+						return true;
+					}
+			}
+			
+			function checkAllForms(form)
+			{
+				if(validateEmptyBsize(form["budsize"],form["validation1"]) && validateEmptyTemp(form["temp"],form["validation2"]) 
+				&& validateEmptyDate(form["date"],form["validation3"]) && validateEmptyCity(form["city"],form["validation4"])
+				&& validateEmptyEnergyclass(form["energyclass"],form["validation5"])&& validateEmptyheating(form["commercialsheating"],form["validation6"])
+				&& validateEmptylightening(form["commerciallightening"],form["validation7"])
+				&& validateEmptywaterheating(form["commercialwaterheating"],form["validation8"])&& validateEmptycooling(form["commercialcooking"],form["validation9"])
+				&& validateEmptycooking(form["commercialcooking"],form["validation10"])&& validateEmptyothers(form["commercialothers"],form["validation11"]))
+				{
+					form.submit();
+				}
+				else
+				{
+					alert("something is wrong with your form,fill it properly and accordingly.");
+				}
+			}
+		</script>
+</head>
+<body id="body">
+<div class="container">
+				<div class="row page-header" id="head">
+					<div class="span2">
+					</div>
+					
+					<div class="span8">
+					<h2>GREEN ENERGY WEB APPLICATION</h2>
+					</div>
+					
+					<div class="span2">
+					</div>
+				
+				</div>
+				
+				<div class="row">
+						<div class="span1">
+						</div>
+						<div class="span10">
+							<form name="energyform" action = "greenenergyresult.php"  method="POST" class="form-horizontal" >
+							<div class="control-group">
+							<label for =""><h5 style="color:red;">BUILDING SIZE IN CUBIC CENTIMETER:</h5></label>
+							<input type="text" name="budsize" id="bsize" onblur="validateEmptyBsize(this,document.getElementById('validation1'));"/>
+							<span id="validation1" style="color:yellow;font-size:150%;"></span>
+							</div>
+							
+							<div class="control-group">
+							<label for =""><h5 style="color:red;">TEMPERATURE IN DEGREE:</h5></label>
+							<input type="text" name="temp" id="tempdegree" onclick="alert('please make sure the temperature is in degree centigrade')" onblur="validateEmptyTemp(this,document.getElementById('validation2'))"/>
+							<span id="validation2" style="color:yellow;font-size:150%;"></span>
+							</div><br />
+							
+							<label for ="datey"><h5 style="color:red;">DATE:</h5></label>
+							<input type="date" name="date" id="datey"  onblur = "validateEmptyDate(this,document.getElementById('validation3'));" onchange = "validateEmptyDate(this,document.getElementById('validation3'));"/><br />
+							<span id="validation3" style="color:yellow;font-size:150%;"></span>
+								
+							<div>
+							<h5 style="color:red;">SELECT A CITY:</h5>
+							<select id="cities"  name="city"  onblur = "validateEmptyCity(this,document.getElementById('validation4'));" onchange = "validateEmptyCity(this,document.getElementById('validation5'));" >
+							<option value="default">select city</option>
+							<option>Alajärvi</option>
+							<option>Alavus</option>
+							<option>Espoo</option>
+							<option>Forssa</option>
+							<option>Haapajärvi</option>
+							<option>Haapavesi</option>
+							<option>Hamina</option>
+							<option>Hanko</option>
+							<option>Haukipudas</option>
+							<option>Heinola</option>
+							<option>Helsinki</option>
+							<option>Huittinen</option>
+							<option>Hyvinkää</option>
+							<option>Hämeenlinna</option>
+							<option>Iisalmi	</option>
+							<option>Idensalmi</option>
+							<option>Ikaalinen</option>
+							<option>Pietarsaari</option>
+							<option>Joensuu	</option>
+							<option>Juankoski</option>
+							<option>Jyväskylä</option>
+							<option>Jämsä</option>
+							<option>Järvenpää</option>
+							<option>Kajaani</option>
+							<option>Kalajoki</option>
+							<option>Kankaanpää</option>
+							<option>Kannus</option>
+							<option>Karkkila</option>
+							<option>Kaskinen</option>
+							<option>Kauhajoki</option>
+							<option>Kauhava	</option>
+							<option>Kauniainen</option>
+							<option>Kemi</option>
+							<option>Kemijärvi</option>
+							<option>Kemiträsk</option>
+							<option>Kerava</option>
+							<option>Keuruu</option>
+							<option>Kitee</option>
+							<option>Kokemäki</option>
+							<option>Kokkola	</option>
+							<option>Karleby</option>
+							<option>Kotka</option>
+							<option>Kouvola</option>
+							<option>Kristiinankaupunki</option>
+							<option>Kuhmo</option>
+							<option>Kuopio</option>
+							<option>Kurikka	</option>
+							<option>Lahti</option>
+							<option>Laitila	</option>
+							<option>Letala</option>
+							<option>Lappeenranta</option>
+							<option>Lapua</option>
+							<option>Lieksa	</option>
+							<option>Lohja</option>
+							<option>Loviisa</option>
+							<option>Maarianhamina</option>
+							<option>Mikkeli</option>
+							<option>Mänttä-Vilppula	</option>
+							<option>Mänttä-Filpula</option>
+							<option>Naantali</option>
+							<option>Nokia</option>
+							<option>Uusikaarlepyy</option>
+							<option>Uusikaarlepyy</option>
+							<option>Närpiö</option>
+							<option>Orimattila</option>
+							<option>Orivesi</option>
+							<option>Oulainen</option>
+							<option>Oulu</option>
+							<option>Paimio</option>
+							<option>Parainen</option>
+							<option>Pori</option>
+							<option>Porvoo</option>
+							<option>Pudasjärvi</option>
+							<option>Pyhäjärvi</option>
+							<option>Raahe</option>
+							<option>Raasepori</option>
+							<option>Raisio</option>
+							<option>Rauma</option>
+							<option>Riihimäki</option>
+							<option>Rovaniemi</option>
+							<option>Saarijärvi</option>
+							<option>Salo</option>
+							<option>Sastamala</option>
+							<option>Savonlinna</option>
+							<option>Seinäjoki</option>
+							<option>Siuntio</option>
+							<option>Tampere</option>
+							<option>Tornio</option>
+							<option>Turku</option>
+							<option>Ulvila</option>
+							<option>Uusikaupunki</option>
+							<option>Vaasa</option>
+							<option>Vantaa</option>
+							<option>Varkaus</option>
+							<option>Viitasaari</option>
+							<option>Virrat</option>
+							<option>Ylivieska</option>
+							<option>Ylöjärvi</option>
+							</select>
+							<span id="validation4" style="color:yellow;font-size:150%;"></span>
+							<br /><br />
+							</div>
+							<div class="control-group">
+							<h5 style="color:red;">ENERGY CLASS OF THE BUILDING:</h5>
+							<select name="energyclass" onblur = "validateEmptyEnergyclass(this,document.getElementById('validation5));" onchange = "includeInput(this);">
+							<option value="blank">SELECT ENERGY CLASS</option>
+							<option>Commercial Building</option>
+							<option>Domestic Building</option>
+							<option >shopping and retail building</option>
+							</select>
+							
+							<span id="validation5" style="color:yellow;font-size:150%;"></span>
+							</div><br />
+							
+							<!-- hidden fields  -->
+							<div class="control-group">
+							<h5 id = "space heating field" style="color:red;"></h5>
+							<input type="hidden" name="commercialsheating" id="space heating" onblur="validateEmptyheating(this,document.getElementById('validation6'))"/>
+							<span id="validation6" style="color:yellow;font-size:150%;"></span><br />
+							
+							<h5 id = "lightening field" style="color:red;"></h5>
+							<input type="hidden" name="commerciallightening" id="lightening" onblur="validateEmptylightening(this,document.getElementById('validation7'))"/>
+							<span id="validation7"  style="color:yellow;font-size:150%;"></span><br />
+							
+							<h5 id = "water heating field" style="color:red;">
+							</h5><input type="hidden" name="commercialwaterheating" id="water heating" onblur="validateEmptywaterheating(this,document.getElementById('validation8'))"/>
+							<span id="validation8"  style="color:yellow;font-size:150%;"></span><br />
+							
+							<h5 id = "cooking field" style="color:red;"></h5>
+							<input type="hidden" name="commercialcooking" id="cooking" onblur="validateEmptycooking(this,document.getElementById('validation9'))"/>
+							<span id="validation9"  style="color:yellow;font-size:150%;"></span><br />
+							
+							<h5 id = "cooling field" style="color:red;"></h5>
+							<input type="hidden" name="commercialcooling" id="cooling" onblur="validateEmptycooling(this,document.getElementById('validation10'))"/>
+							<span id="validation10"  style="color:yellow;font-size:150%;"></span><br />
+							
+							<h5 id = "others field" style="color:red;">
+							</h5><input type="hidden" name="commercialothers" id="others" onblur="validateEmptyothers(this,document.getElementById('validation12'))"/>
+							<span id="validation12"  style="color:yellow;font-size:150%;"></span><br />
+							</div>
+							<!-- hidden fields ends-->
+							
+							<input class="btn btn-default" type="button"  onclick = "checkAllForms(this.form);" style="color:green;" value="BUILDING ENERGY CONSUMPTION"/>
+							</form>
+							
+						</div>
+						<div class="span1">
+						</div>
+				</div>
+				
+
+	<!--http://www.rehva.eu/publications-and-resources/hvac-journal/2012/012012/how-to-reach-less-than-15-kwhm2-annual-final-energy-use-for-hvac-in-an-office-building/
+	https://www.youtube.com/watch?v=4PBa5juYwaA
+	http://www.the-art-of-web.com/javascript/validate/ -->
+				
+</div>
+</body>
+</html>
+
+

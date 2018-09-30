@@ -1,0 +1,31 @@
+#body
+{
+	background-image:url(../images/house1.jpg);
+	background-repeat:no-repeat;
+	background-position:center center;
+	background-size: cover;
+	opacity:1.0;
+	background-color:green;
+}
+
+#body1
+{
+	background-image:url(../images/house.jpg);
+	background-repeat:no-repeat;
+	background-position:center center;
+	background-size: cover;
+	opacity:1.0;
+	background-color:green;
+}
+
+#head
+{
+	background-color:green;
+}
+
+p,h5,a
+{
+	font-size:16px;
+	font-weight:900;
+	color:yellow;
+}
